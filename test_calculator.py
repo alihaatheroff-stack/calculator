@@ -1,0 +1,78 @@
+# test_calculator.py
+# These are the TESTS that CI/CD will run automatically
+# Each function tests one part of our calculator
+
+import pytest
+from calculator import add, subtract, multiply, divide
+
+
+# ── ADD TESTS ──────────────────────────────────────
+class TestAdd:
+    def test_add_two_positive_numbers(self):
+        assert add(3, 5) == 8
+
+    def test_add_positive_and_negative(self):
+        assert add(10, -3) == 7
+
+    def test_add_two_negative_numbers(self):
+        assert add(-4, -6) == -10
+
+    def test_add_with_zero(self):
+        assert add(5, 0) == 5
+
+    def test_add_decimals(self):
+        assert add(1.5, 2.5) == 4.0
+
+
+# ── SUBTRACT TESTS ─────────────────────────────────
+class TestSubtract:
+    def test_subtract_basic(self):
+        assert subtract(10, 3) == 7
+
+    def test_subtract_gives_negative(self):
+        assert subtract(3, 10) == -7
+
+    def test_subtract_same_numbers(self):
+        assert subtract(5, 5) == 0
+
+    def test_subtract_with_zero(self):
+        assert subtract(8, 0) == 8
+
+
+# ── MULTIPLY TESTS ─────────────────────────────────
+class TestMultiply:
+    def test_multiply_two_positives(self):
+        assert multiply(4, 5) == 20
+
+    def test_multiply_by_zero(self):
+        assert multiply(99, 0) == 0
+
+    def test_multiply_by_one(self):
+        assert multiply(7, 1) == 7
+
+    def test_multiply_two_negatives(self):
+        assert multiply(-3, -4) == 12
+
+    def test_multiply_positive_and_negative(self):
+        assert multiply(5, -3) == -15
+
+
+# ── DIVIDE TESTS ───────────────────────────────────
+class TestDivide:
+    def test_divide_basic(self):
+        assert divide(10, 2) == 5.0
+
+    def test_divide_gives_decimal(self):
+        assert divide(7, 2) == 3.5
+
+    def test_divide_by_one(self):
+        assert divide(9, 1) == 9.0
+
+    def test_divide_by_zero_raises_error(self):
+        # This test checks that dividing by zero raises an error
+        with pytest.raises(ValueError) as error:
+            divide(10, 0)
+        assert "Cannot divide by zero" in str(error.value)
+
+    def test_divide_negative_numbers(self):
+        assert divide(-10, 2) == -5.0
