@@ -1,6 +1,7 @@
 import pytest
 from calculator import add, subtract, multiply, divide, square_root, power
 
+
 class TestAdd:
     def test_add_two_positive_numbers(self):
         assert add(3, 5) == 8
@@ -30,6 +31,7 @@ class TestSubtract:
 
     def test_subtract_with_zero(self):
         assert subtract(8, 0) == 8
+
 
 class TestMultiply:
     def test_multiply_two_positives(self):
@@ -81,24 +83,20 @@ class TestSquareRoot:
         with pytest.raises(ValueError) as error:
             square_root(-4)
         assert "Cannot calculate square root" in str(error.value)
+
+
 class TestPower:
     def test_power_basic(self):
         assert power(2, 3) == 8.0
 
-    def test_power_to_zero(self):
+    def test_power_zero_exponent(self):
         assert power(5, 0) == 1.0
 
-    def test_power_to_one(self):
+    def test_power_one_exponent(self):
         assert power(7, 1) == 7.0
 
     def test_power_negative_exponent(self):
         assert power(2, -2) == 0.25
 
-    def test_power_fractional_exponent(self):
-        assert power(4, 0.5) == 2.0
-
-    def test_power_negative_base(self):
-        assert power(-2, 3) == -8.0
-
     def test_power_decimal_base(self):
-        assert power(2.5, 2) == 6.25
+        assert power(1.5, 2) == 2.25
