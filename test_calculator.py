@@ -76,7 +76,7 @@ class TestDivide:
     def test_divide_negative_numbers(self):
         assert divide(-10, 2) == -5.0
     
-    class TestSquareRoot:
+class TestSquareRoot:
 
     def test_square_root_basic(self):
         assert square_root(9) == 3.0
