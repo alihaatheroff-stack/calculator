@@ -57,16 +57,14 @@ def calculator():
             print("Invalid choice! Please enter 1-6.")
             continue
 
-        # Square root only needs ONE number
         if choice == '5':
             try:
                 a = float(input("Enter number: "))
-                print(f"Result: √{a} = {square_root(a)}")
+                print(f"Result: sqrt({a}) = {square_root(a)}")
             except ValueError as e:
                 print(f"Error: {e}")
             continue
 
-        # All other operations need TWO numbers
         try:
             a = float(input("Enter first number: "))
             b = float(input("Enter second number: "))
