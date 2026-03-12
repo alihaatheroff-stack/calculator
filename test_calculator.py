@@ -81,7 +81,7 @@ class TestSquareRoot:
         with pytest.raises(ValueError) as error:
             square_root(-4)
         assert "Cannot calculate square root" in str(error.value)
-    class TestPower:
+class TestPower:
     def test_power_basic(self):
         assert power(2, 3) == 8.0
 
