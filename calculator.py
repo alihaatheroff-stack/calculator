@@ -29,13 +29,11 @@ def square_root(a):
         raise ValueError("Cannot calculate square root of a negative number")
     return math.sqrt(a)
 
-def power(a, b):
-    """Raise a to the power of b."""
-    return math.pow(a, b)
 
 def power(a, b):
     """Raise a to the power of b."""
     return math.pow(a, b)
+
 
 def calculator():
     """Main calculator function - interactive menu."""
@@ -51,7 +49,7 @@ def calculator():
     print("  6. Power (a^b)")
     print("  7. Exit")
     print("=" * 30)
-    
+
     while True:
         choice = input("\nEnter choice (1/2/3/4/5/6/7): ")
 
@@ -61,12 +59,6 @@ def calculator():
 
         if choice not in ["1", "2", "3", "4", "5", "6"]:
             print("Invalid choice! Please enter 1-7.")
-            continue
-        
-
-
-        if choice not in ["1", "2", "3", "4", "5"]:
-            print("Invalid choice! Please enter 1-6.")
             continue
 
         try:
@@ -86,8 +78,6 @@ def calculator():
             elif choice == "3":
                 print(f"Result: {a} x {b} = {multiply(a, b)}")
             elif choice == "4":
-                print(f"Result: {a} / {b} = {divide(a, b)}")
-                        elif choice == "4":
                 print(f"Result: {a} / {b} = {divide(a, b)}")
             elif choice == "6":
                 print(f"Result: {a} ^ {b} = {power(a, b)}")
