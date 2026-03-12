@@ -3,8 +3,7 @@
 # Each function tests one part of our calculator
 
 import pytest
-from calculator import add, subtract, multiply, divide
-
+from calculator import add, subtract, multiply, divide, square_root
 
 # ── ADD TESTS ──────────────────────────────────────
 class TestAdd:
@@ -76,3 +75,19 @@ class TestDivide:
 
     def test_divide_negative_numbers(self):
         assert divide(-10, 2) == -5.0
+    
+    class TestSquareRoot:
+
+    def test_square_root_basic(self):
+        assert square_root(9) == 3.0
+
+    def test_square_root_of_zero(self):
+        assert square_root(0) == 0.0
+
+    def test_square_root_decimal(self):
+        assert square_root(2.25) == 1.5
+
+    def test_square_root_negative_raises_error(self):
+        with pytest.raises(ValueError) as error:
+            square_root(-4)
+        assert "Cannot calculate square root" in str(error.value)
