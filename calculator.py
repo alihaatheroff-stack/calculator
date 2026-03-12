@@ -2,6 +2,7 @@
 
 import math
 
+
 def add(a, b):
     """Add two numbers"""
     return a + b
@@ -22,7 +23,6 @@ def divide(a, b):
     if b == 0:
         raise ValueError("Cannot divide by zero!")
     return a / b
-import math
 
 
 def square_root(a):
@@ -30,6 +30,7 @@ def square_root(a):
     if a < 0:
         raise ValueError("Cannot calculate square root of negative number!")
     return math.sqrt(a)
+
 
 def calculator():
     """Main calculator function - interactive menu"""
@@ -42,20 +43,30 @@ def calculator():
     print("  3. Multiply")
     print("  4. Divide")
     print("  5. Square Root")
-    print("  6. Exit")        # change 5 to 6
+    print("  6. Exit")
     print("=" * 30)
 
     while True:
-        choice = input("\nEnter choice (1/2/3/4/5): ")
+        choice = input("\nEnter choice (1/2/3/4/5/6): ")
 
-        if choice == '5':
+        if choice == '6':
             print("Goodbye!")
             break
 
-        if choice not in ['1', '2', '3', '4','5']:
-            print("Invalid choice! Please enter 1-5.")
+        if choice not in ['1', '2', '3', '4', '5']:
+            print("Invalid choice! Please enter 1-6.")
             continue
 
+        # Square root only needs ONE number
+        if choice == '5':
+            try:
+                a = float(input("Enter number: "))
+                print(f"Result: √{a} = {square_root(a)}")
+            except ValueError as e:
+                print(f"Error: {e}")
+            continue
+
+        # All other operations need TWO numbers
         try:
             a = float(input("Enter first number: "))
             b = float(input("Enter second number: "))
@@ -74,11 +85,7 @@ def calculator():
                 print(f"Result: {a} / {b} = {divide(a, b)}")
             except ValueError as e:
                 print(f"Error: {e}")
-        elif choice == '5':
-            try:
-                print(f"Result: √{a} = {square_root(a)}")
-            except ValueError as e:
-                print(f"Error: {e}")
+
 
 if __name__ == "__main__":
     calculator()
