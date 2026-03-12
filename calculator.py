@@ -1,7 +1,5 @@
 # calculator.py
 
-import math
-
 
 def add(a, b):
     """Add two numbers"""
@@ -25,13 +23,6 @@ def divide(a, b):
     return a / b
 
 
-def square_root(a):
-    """Calculate square root of a number"""
-    if a < 0:
-        raise ValueError("Cannot calculate square root of negative number!")
-    return math.sqrt(a)
-
-
 def calculator():
     """Main calculator function - interactive menu"""
     print("=" * 30)
@@ -42,27 +33,18 @@ def calculator():
     print("  2. Subtract")
     print("  3. Multiply")
     print("  4. Divide")
-    print("  5. Square Root")
-    print("  6. Exit")
+    print("  5. Exit")
     print("=" * 30)
 
     while True:
-        choice = input("\nEnter choice (1/2/3/4/5/6): ")
+        choice = input("\nEnter choice (1/2/3/4/5): ")
 
-        if choice == '6':
+        if choice == '5':
             print("Goodbye!")
             break
 
-        if choice not in ['1', '2', '3', '4', '5']:
-            print("Invalid choice! Please enter 1-6.")
-            continue
-
-        if choice == '5':
-            try:
-                a = float(input("Enter number: "))
-                print(f"Result: sqrt({a}) = {square_root(a)}")
-            except ValueError as e:
-                print(f"Error: {e}")
+        if choice not in ['1', '2', '3', '4']:
+            print("Invalid choice! Please enter 1-5.")
             continue
 
         try:
