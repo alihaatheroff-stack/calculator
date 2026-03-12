@@ -1,5 +1,5 @@
 # calculator.py
-
+import math
 
 def add(a, b):
     """Add two numbers"""
